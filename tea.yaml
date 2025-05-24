@@ -1,0 +1,5 @@
+name: chainrun
+description: Universal CLI to read or write to any EVM smart contract
+contributors:
+  - glode
+quorum: 1
