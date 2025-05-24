@@ -1,23 +1,25 @@
 # ChainRun
 
-**ChainRun** is a universal CLI tool to interact with smart contracts on any EVM-compatible chain — without writing code or using a frontend.
+**ChainRun** is a universal, zero-setup command-line tool that lets you interact with any smart contract on any EVM-compatible blockchain — directly from your terminal.
+
+Whether you're reading token data, estimating gas, or sending on-chain transactions, ChainRun is built to get it done fast.
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-- 🧠 Call any smart contract method
-- 🔗 Works with any EVM RPC (Ethereum, Polygon, BSC, etc.)
-- 🧾 Accepts local `.json` ABI files or auto-fetches from Etherscan
-- 🔐 Optional private key support for sending transactions
-- ⛽ Gas estimation with `--estimate` flag
-- 🌍 No setup required — fully portable
+- ⚡️ Call any smart contract method (read/write)
+- 🌐 Compatible with all EVM chains (Ethereum, Polygon, BNB, Arbitrum, etc.)
+- 📦 Load ABI from `.json` or auto-fetch from Etherscan with your API key
+- 🔐 Supports private key signing for sending transactions
+- ⛽ Estimate gas before committing with `--estimate`
+- 🧠 No coding required — just one CLI command
 
 ---
 
-## 📦 Usage
+## 📦 Usage Examples
 
-### Call `name()` on USDC via Infura
+### 🧠 Read a value (token name from USDC)
 
 ```bash
 node chainrun.js \
@@ -25,3 +27,74 @@ node chainrun.js \
   --contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 \
   --abi ./usdc.json \
   --method name
+```
+
+---
+
+### 🔍 Use Etherscan ABI (no local file)
+
+```bash
+node chainrun.js \
+  --rpc https://mainnet.infura.io/v3/YOUR_KEY \
+  --contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 \
+  --abi YOUR_ETHERSCAN_API_KEY \
+  --method symbol
+```
+
+> 🔐 Get your free Etherscan key: https://etherscan.io/myapikey
+
+---
+
+### 📟 Send a transaction (e.g., transfer)
+
+```bash
+node chainrun.js \
+  --rpc https://sepolia.infura.io/v3/YOUR_KEY \
+  --contract 0xYourContractAddress \
+  --abi ./mycontract.json \
+  --method transfer \
+  --args 0xRecipientAddress 1000000000000000000 \
+  --pk 0xYourPrivateKey
+```
+
+> 💡 Add `--estimate` to preview gas usage before sending.
+
+---
+
+## 🛠️ Install Globally (Optional)
+
+```bash
+npm install -g
+chainrun --help
+```
+
+---
+
+## 🤝 Contribute & Claim Rewards
+
+This project is registered on [tea.xyz](https://tea.xyz) — a decentralized registry for open-source projects.
+
+If you're a developer, contributor, or open-source supporter:
+- Fork this repo
+- Contribute improvements or new features
+- Stake TEA to support the project and earn rewards
+
+---
+
+## 📁 Project Structure
+
+```bash
+chainrun/
+├── chainrun.js          # Core CLI tool
+├── usdc.json            # Sample ABI file (USDC)
+├── tea.yaml             # tea.xyz metadata
+├── LICENSE              # MIT license
+├── README.md            # You're looking at it
+├── package.json         # CLI config + metadata
+```
+
+---
+
+## 🧾 License
+
+MIT © 2025 Glode
