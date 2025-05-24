@@ -1,5 +1,5 @@
 name: chainrun
-description: Universal CLI to read or write to any EVM smart contract
+description: Universal CLI for interacting with EVM smart contracts via ABI and RPC
 contributors:
-  - glode
+  - severezero
 quorum: 1
